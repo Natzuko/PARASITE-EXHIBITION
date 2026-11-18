@@ -3,17 +3,34 @@
   "name": "PARASITE",
   "version": "0.1.0",
   "description": "Navigating the Wrong Internet. Primera prueba: detección de enlaces.",
-
-  "permissions": ["storage", "offscreen"],
-
+  "icons": {
+    "16": "icons/parasite-16.png",
+    "32": "icons/parasite-32.png",
+    "48": "icons/parasite-48.png",
+    "128": "icons/parasite-128.png"
+  },
+"permissions": [
+  "storage",
+  "offscreen",
+  "alarms",
+  "webNavigation"
+],
+"host_permissions": [
+  "https://www.google.com/*",
+  "https://cp.cloudflare.com/*"
+],
   "background": {
     "service_worker": "service-worker.js"
   },
-
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "css": ["core/parasite.css"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "css": [
+        "core/parasite.css"
+      ],
       "js": [
         "platform/browser-adapter.js",
         "audio/bridge.js",
@@ -28,29 +45,42 @@
         "core/organism.js",
         "core/platform-view.js",
         "core/behavior.js",
+        "core/exhibition-follow.js",
         "core/navigation.js",
+        "core/exhibition-navigation.js",
         "core/sound.js",
         "core/parasite.js",
+        "core/exhibition-straw-bridge.js",
         "content/observer.js",
-        "content/links.js"
+        "content/links.js",
+        "core/exhibition-controller.js",
+        "core/exhibition-consent.js",
+        "core/exhibition-curated-display.js"
       ],
       "run_at": "document_idle"
     }
   ],
-
   "web_accessible_resources": [
     {
       "resources": [
         "audio/habitat/habitat_01.wav",
         "audio/events/click_01.wav",
         "audio/events/click_02.wav",
-        "audio/textures/noise_01.wav"
+        "audio/textures/noise_01.wav",
+        "exhibition/media/*"
       ],
-      "matches": ["<all_urls>"]
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ],
-
   "action": {
-    "default_title": "PARASITE"
+    "default_title": "PARASITE EXHIBITION",
+    "default_icon": {
+      "16": "icons/parasite-16.png",
+      "32": "icons/parasite-32.png",
+      "48": "icons/parasite-48.png",
+      "128": "icons/parasite-128.png"
+    }
   }
 }

@@ -994,17 +994,50 @@ class ParasiteBehavior {
       this.lastAnatomyLog = time;
     }
 
+    const phase = globalThis.parasiteExhibition?.active === true
+      ? globalThis.parasiteExhibition.survival?.phase
+      : "ACTIVE";
+
+    const vitalityTargets = {
+      ACTIVE: 1,
+      UNKNOWN: 1,
+      UNSTABLE: 0.92,
+      STARVATION: 0.68,
+      NEAR_DEATH: 0.38,
+      DORMANCY: 0.18,
+      RECOVERY: 0.65
+    };
+
+    const targetVitality = vitalityTargets[phase] ?? 1;
+
+    if (!Number.isFinite(this.exhibitionVitality)) {
+      this.exhibitionVitality = 1;
+    }
+
+    // Transicion gradual entre estados.
+    this.exhibitionVitality +=
+      (targetVitality - this.exhibitionVitality) * 0.02;
+
+    const vitality = this.exhibitionVitality;
+
+    this.ctx.save();
+
+    this.ctx.globalAlpha *= 0.15 + 0.85 * vitality;
+
     window.parasiteOrganism.draw({
       ctx: this.ctx,
       currentTarget: this.currentTarget,
       centerX: this.x,
       centerY: this.y,
-      radius,
+      radius: radius * (0.5 + 0.5 * vitality),
       time,
       activity,
-      tendrilStrength,
+      tendrilStrength: tendrilStrength * vitality,
       anatomy,
     });
+
+    this.ctx.restore();
+
   }
 }
 

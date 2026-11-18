@@ -1,36 +1,74 @@
 /**
  * ==========================================================
- * PARASITE
+ * PARASITE_EXHIBITION
  * service-worker.js
  * ==========================================================
  */
 
 "use strict";
 
+// ==========================================================
+// PARASITE EXHIBITION — BACKGROUND CONTROLLER
+// ==========================================================
+
+importScripts("exhibition/exhibition-background.js");
+importScripts("exhibition/curated-selector.js");
+
+importScripts("exhibition/exhibition-survival.js");
+importScripts("exhibition/exhibition-connectivity.js");
+importScripts("exhibition/exhibition-network-monitor.js");
+importScripts("exhibition/offline-transition.js");
+
+let offscreenCreation = null;
+
 async function ensureOffscreenDocument() {
 
-    const existing =
-        await chrome.runtime.getContexts({
-            contextTypes: ["OFFSCREEN_DOCUMENT"],
-            documentUrls: [
-                chrome.runtime.getURL("offscreen.html")
-            ]
-        });
+    let exists = false;
 
-    if (existing.length > 0) {
+    if (typeof chrome.runtime.getContexts === "function") {
+
+        const existing =
+            await chrome.runtime.getContexts({
+                contextTypes: ["OFFSCREEN_DOCUMENT"],
+                documentUrls: [
+                    chrome.runtime.getURL("offscreen.html")
+                ]
+            });
+
+        exists = existing.length > 0;
+
+    } else {
+
+        const matchedClients = await clients.matchAll();
+
+        exists = matchedClients.some(
+            client =>
+                client.url ===
+                chrome.runtime.getURL("offscreen.html")
+        );
+    }
+
+    if (exists) {
         return;
     }
 
-    await chrome.offscreen.createDocument({
-        url: "offscreen.html",
-        reasons: ["AUDIO_PLAYBACK"],
-        justification:
-            "Persistent sound engine for PARASITE."
-    });
+    if (!offscreenCreation) {
+        offscreenCreation = chrome.offscreen.createDocument({
+            url: "offscreen.html",
+            reasons: ["AUDIO_PLAYBACK"],
+            justification:
+                "Persistent sound engine for PARASITE."
+        })
+            .then(() => {
+                console.log("[PARASITE] OFFSCREEN CREATED");
+            })
+            .finally(() => {
+                offscreenCreation = null;
+            });
+    }
 
-    console.log(
-        "[PARASITE] OFFSCREEN CREATED"
-    );
+    await offscreenCreation;
+
 }
 
 chrome.runtime.onInstalled.addListener(async (details) => {
@@ -193,7 +231,7 @@ chrome.runtime.onMessage.addListener(
 
                 return Promise.all(messages);
             })
-            
+
             .then(async () => {
                 await ensureOffscreenDocument();
 

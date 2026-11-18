@@ -1,0 +1,28 @@
+{
+    "schemaVersion": 1,
+    "groups": [
+        {
+            "id": "group-01",
+            "links": [
+                {
+                    "id": "leo-root",
+                    "url": "https://wipparasito.straw.page/leo"
+                }
+            ],
+            "images": [],
+            "texts": []
+        },
+        {
+            "id": "group-02",
+            "links": [],
+            "images": [],
+            "texts": []
+        },
+        {
+            "id": "group-03",
+            "links": [],
+            "images": [],
+            "texts": []
+        }
+    ]
+}

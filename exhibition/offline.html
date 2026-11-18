@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PARASITE — DORMANCY</title>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #parasite-offline-habitat {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        #parasite-memory-field {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #parasite-offline-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main id="parasite-offline-habitat">
+
+        <div id="parasite-memory-field"></div>
+
+        <canvas id="parasite-offline-canvas"></canvas>
+
+    </main>
+
+    <script src="../core/evolution.js" defer></script>
+    <script src="../core/organism.js" defer></script>
+    <script src="./offline-world.js" defer></script>
+
+</body>
+
+</html>
