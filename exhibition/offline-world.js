@@ -1,4 +1,3 @@
-
 /**
  * PARASITE EXHIBITION — OFFLINE WORLD
  * Independent local habitat.
@@ -31,6 +30,17 @@
     let anchors = [];
     let lastFrame = 0;
 
+    // ----------------------------------------------------------
+    // OFFLINE — AUTONOMOUS MOVEMENT
+    // ----------------------------------------------------------
+
+    const offlineWander = {
+        x: null,
+        y: null,
+        targetX: null,
+        targetY: null,
+        nextTargetAt: 0
+    };
 
     // ----------------------------------------------------------
     // OFFLINE — SURVIVAL STATE
@@ -158,11 +168,22 @@
 
         ctx.clearRect(0, 0, width, height);
 
-        const centerX =
-            width * 0.5 + Math.sin(time * 0.00018) * 16;
+        if (offlineWander.x === null) {
+            offlineWander.x = width * 0.5;
+            offlineWander.y = height * 0.5;
+        }
 
-        const centerY =
-            height * 0.5 + Math.cos(time * 0.00014) * 12;
+        if (time >= offlineWander.nextTargetAt) {
+            offlineWander.targetX = width * (0.25 + Math.random() * 0.5);
+            offlineWander.targetY = height * (0.25 + Math.random() * 0.5);
+            offlineWander.nextTargetAt = time + 12000;
+        }
+
+        offlineWander.x += (offlineWander.targetX - offlineWander.x) * 0.01;
+        offlineWander.y += (offlineWander.targetY - offlineWander.y) * 0.01;
+
+        const centerX = offlineWander.x;
+        const centerY = offlineWander.y;
 
         const radius =
             34 + Math.sin(time * 0.0006) * 3;
