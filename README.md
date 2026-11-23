@@ -46,6 +46,42 @@ What began as an independent contribution became an integral part of the exhibit
 
 **Thank you, Leo, for bringing your own world into PARASITE.**
 
+### Explore Leo's Web Universe / Explorá el universo web de Leo
+
+A collection of interconnected webpages created by Leo for PARASITE — Exhibition Mode.
+
+Una colección de páginas web interconectadas creadas por Leo para PARASITE — Modo Exhibición.
+
+**Main pages / Páginas principales**
+
+- [Home](https://wipparasito.straw.page)
+- [Leo](https://wipparasito.straw.page/leo)
+
+**AD Series**
+
+- [AD 2](https://wipparasito.straw.page/ad2)
+- [AD 3](https://wipparasito.straw.page/ad3)
+- [AD 4](https://wipparasito.straw.page/ad4)
+- [AD 5](https://wipparasito.straw.page/ad5)
+
+**ANA Series**
+
+- [ANA 1](https://wipparasito.straw.page/ana1)
+- [ANA 2](https://wipparasito.straw.page/ana2)
+- [ANA 3](https://wipparasito.straw.page/ana3)
+- [ANA 4](https://wipparasito.straw.page/ana4)
+- [ANA 5](https://wipparasito.straw.page/ana5)
+
+**POEM Series**
+
+- [POEM 1](https://wipparasito.straw.page/poem1)
+- [POEM 2](https://wipparasito.straw.page/poem2)
+- [POEM 3](https://wipparasito.straw.page/poem3)
+- [POEM 4](https://wipparasito.straw.page/poem4)
+- [POEM 5](https://wipparasito.straw.page/poem5)
+- [POEM 6](https://wipparasito.straw.page/poem6)
+
+
 ---
 
 ### Installation

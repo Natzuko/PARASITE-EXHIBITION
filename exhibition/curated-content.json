@@ -4,10 +4,23 @@
         {
             "id": "group-01",
             "links": [
-                {
-                    "id": "leo-root",
-                    "url": "https://wipparasito.straw.page/leo"
-                }
+                {"id": "leo-root", "url": "https://wipparasito.straw.page/leo"},
+                {"id": "leo-home", "url": "https://wipparasito.straw.page/"},
+                {"id": "leo-ad2", "url": "https://wipparasito.straw.page/ad2"},
+                {"id": "leo-ad3", "url": "https://wipparasito.straw.page/ad3"},
+                {"id": "leo-ad4", "url": "https://wipparasito.straw.page/ad4"},
+                {"id": "leo-ad5", "url": "https://wipparasito.straw.page/ad5"},
+                {"id": "leo-ana1", "url": "https://wipparasito.straw.page/ana1"},
+                {"id": "leo-ana2", "url": "https://wipparasito.straw.page/ana2"},
+                {"id": "leo-ana3", "url": "https://wipparasito.straw.page/ana3"},
+                {"id": "leo-ana4", "url": "https://wipparasito.straw.page/ana4"},
+                {"id": "leo-ana5", "url": "https://wipparasito.straw.page/ana5"},
+                {"id": "leo-poem1", "url": "https://wipparasito.straw.page/poem1"},
+                {"id": "leo-poem2", "url": "https://wipparasito.straw.page/poem2"},
+                {"id": "leo-poem3", "url": "https://wipparasito.straw.page/poem3"},
+                {"id": "leo-poem4", "url": "https://wipparasito.straw.page/poem4"},
+                {"id": "leo-poem5", "url": "https://wipparasito.straw.page/poem5"},
+                {"id": "leo-poem6", "url": "https://wipparasito.straw.page/poem6"}
             ],
             "images": [],
             "texts": []
